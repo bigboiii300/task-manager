@@ -13,15 +13,8 @@ import (
 
 func main() {
 	utils.InitViper()
-	portdb := viper.Get("DB_PORT")
-	hostdb := viper.Get("DB_HOST")
-	userdb := viper.Get("DB_USER")
-	passworddb := viper.Get("DB_PASS")
-	namedb := viper.Get("DB_NAME")
-	fmt.Println(portdb, hostdb, userdb, passworddb, namedb)
 	host := viper.Get("HOST")
 	port := viper.Get("PORT")
-	fmt.Println(host, port)
 	address := fmt.Sprintf("%s:%s", host, port)
 	database.DB = database.Connect()
 	defer closeConnection()

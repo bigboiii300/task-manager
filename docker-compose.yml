@@ -11,6 +11,8 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
     image: postgres:14.5
+    networks:
+      - backend
   task-manager:
     build: .
     ports:
@@ -18,7 +20,7 @@ services:
     depends_on:
       - db
     networks:
-      - default
+      - backend
 volumes:
   postgres_data:
 networks:
